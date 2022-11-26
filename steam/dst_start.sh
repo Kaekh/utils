@@ -20,7 +20,7 @@ if [[ -d "$install_dir/bin64" && -e "$steam_dir/files/dedicated_server_mods_setu
         cp "$steam_dir/files/dedicated_server_mods_setup.lua" "$install_dir/mods/"
 fi
 
-run_shared=(./dontstarve_dedicated_server_nullrenderer_x64)
+run_shared=("${steam_dir}/${steam_app}/bin64/dontstarve_dedicated_server_nullrenderer_x64)
 run_shared+=(-console)
 run_shared+=(-cluster "$cluster_name")
 run_shared+=(-monitor_parent_process $$)
