@@ -12,7 +12,7 @@ fi
 
 cd "$steam_dir"
 
-bash "$steam_dir/steamcmd/steamcmd.sh" +force_install_dir "$install_dir" +login anonymous +app_update 343050 validate +quit
+bash steamcmd +force_install_dir "$install_dir" +login anonymous +app_update 343050 validate +quit
 
 
 if [[ -d "$install_dir/bin64" && -e "$steam_dir/files/dedicated_server_mods_setup.lua" ]]; then
