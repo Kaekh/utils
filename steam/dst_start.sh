@@ -1,6 +1,6 @@
 #!/bin/bash
 
-steam_dir=${HOMEDIR}
+steam_dir=${HOME}
 steam_app=${STEAMAPP}
 install_dir="$steam_dir/$steam_app"
 dontstarve_dir="$steam_dir/.klei/DoNotStarveTogether"
