@@ -2,7 +2,7 @@
 
 steam_dir=${HOME}
 steam_app=${STEAMAPP}
-install_dir="$steam_dir/$steam_app"
+install_dir="${STEAMAPPDIR}"
 dontstarve_dir="$steam_dir/.klei/DoNotStarveTogether"
 
 if [ ! -d "$steam_dir" ]; then
