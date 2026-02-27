@@ -19,7 +19,7 @@ DATE_FMT="+%Y-%m-%d %H:%M:%S"                           # Date format for log
 log() {
     local TYPE="$1"
     local MSG="$2"
-    echo "$(date "$DATE_FMT") [$TYPE] $MSG" | tee -a "$LOG_FILE"
+    echo "$(date "$DATE_FMT") [$TYPE] $MSG" >> "$LOG_FILE"
 }
 
 # -----------------------------
@@ -80,9 +80,11 @@ fi
 # -----------------------------
 HTTP_CODE=$(curl -s -o /tmp/telegram_response.txt -w "%{http_code}" \
     -X POST "https://api.telegram.org/bot${BOT_ID}/sendMessage" \
-    --data-urlencode "chat_id=${CHAT_ID}" \
-    --data-urlencode "text=${MESSAGE}" \
-    --data-urlencode "parse_mode=Markdown")
+    -H "Content-Type: application/json" \
+    -d "{
+        \"chat_id\": \"${CHAT_ID}\",
+        \"text\": \"${MESSAGE}\"
+    }")
 
 # -----------------------------
 # Check HTTP response
